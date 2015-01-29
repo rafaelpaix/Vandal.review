@@ -1,0 +1,17 @@
+<% if !user_signed_in? %>
+  <div class="jumbotron">
+    <h1>As estampas mais iradas aqui!</h1>
+    <p>Avalie suas estampas, leia as avaliações e participe das discuções. </p>
+    <p><%= link_to "Cadastre-se para avaliar o review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
+<% end %>
+
+<div class="row">
+  <% @estampas.each do |estampa| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= link_to (image_tag estampa.image.url(:medium), class: 'image'), estampa %>
+      </div>
+    </div>
+  <% end %>
+</div>
